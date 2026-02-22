@@ -3,13 +3,27 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --mustard: #E2A53B;
+  --cream: #F6E3C5;
+  --brown: #4A3728;
+  --leaf: #4F7942;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-mustard: var(--mustard);
+  --color-cream: var(--cream);
+  --color-brown: var(--brown);
+  --color-leaf: var(--leaf);
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-outfit);
+
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+
+  --shadow-soft: 0 10px 40px -10px rgba(226, 165, 59, 0.15);
+  --shadow-premium: 0 20px 50px -12px rgba(0, 0, 0, 0.12);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +36,82 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), sans-serif;
+  scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+.font-heading {
+  font-family: var(--font-outfit), sans-serif;
+}
+
+.glow-subtle {
+  box-shadow: 0 0 20px 2px rgba(226, 165, 59, 0.2);
+}
+
+.leaf-accent {
+  position: relative;
+}
+
+.leaf-accent::after {
+  content: "🌿";
+  position: absolute;
+  font-size: 1.5rem;
+  opacity: 0.6;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.8s ease-out forwards;
+}
+
+.delay-100 {
+  animation-delay: 100ms;
+}
+
+.delay-200 {
+  animation-delay: 200ms;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
+}
+
+.delay-400 {
+  animation-delay: 400ms;
+}
+
+.delay-500 {
+  animation-delay: 500ms;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 25px 5px rgba(226, 165, 59, 0.3);
+}
+
+.perspective-image {
+  perspective: 1000px;
+}
+
+.perspective-image img {
+  transform: rotateY(-5deg) rotateX(2deg);
+  transition: transform 0.5s ease;
+}
+
+.perspective-image:hover img {
+  transform: rotateY(0) rotateX(0);
 }
